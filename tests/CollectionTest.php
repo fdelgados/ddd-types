@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Types;
+namespace CiscoDelgado\Types\Tests;
 
-use Types\Collection;
-use Tests\Types\Fixture\AType;
-use Tests\Types\Fixture\AnotherType;
+use CiscoDelgado\Types\Collection;
+use CiscoDelgado\Types\Tests\Fixture\AType;
+use CiscoDelgado\Types\Tests\Fixture\AnotherType;
 
 class CollectionTest extends \PHPUnit_Framework_TestCase
 {
@@ -27,7 +27,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @expectedException Types\Exception\InvalidTypeInCollectionException
+     * @expectedException CiscoDelgado\Types\Exception\InvalidTypeInCollectionException
      */
     public function it_should_not_accept_elements_of_different_types()
     {
@@ -37,7 +37,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @expectedException Types\Exception\InvalidTypeInCollectionException
+     * @expectedException CiscoDelgado\Types\Exception\InvalidTypeInCollectionException
      */
     public function it_should_not_add_elements_of_different_types()
     {

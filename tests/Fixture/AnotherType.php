@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Types\Fixture;
+namespace CiscoDelgado\Types\Tests\Fixture;
 
 class AnotherType
 {
