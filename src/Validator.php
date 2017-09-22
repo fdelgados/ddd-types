@@ -154,6 +154,14 @@ final class Validator
     private static function requiredValidator(): \Closure
     {
         return function ($value) {
+            if ($value === null) {
+                return false;
+            }
+
+            if (is_int($value) || is_float($value) || is_array($value) || is_bool($value)) {
+                return true;
+            }
+
             return !empty($value);
         };
     }
@@ -164,7 +172,7 @@ final class Validator
     private static function notNullValidator(): \Closure
     {
         return function ($value) {
-            return !is_null($value);
+            return $value !== null;
         };
     }
 
