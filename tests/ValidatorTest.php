@@ -74,7 +74,15 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse(Validator::isValid(true, $type));
     }
 
-    public function it_should_validate_with_arguments()
+    /** @test */
+    public function it_should_validate_emails()
     {
+        $type = Validator::EMAIL;
+
+        $this->assertTrue(Validator::isValid('fdelgados@gmail.com', $type));
+        $this->assertTrue(Validator::isValid('fdelgados@gmail.com.es', $type));
+
+        $this->assertFalse(Validator::isValid('@gmail.com', $type));
+        $this->assertFalse(Validator::isValid('fdelgadosgmail.com', $type));
     }
 }
