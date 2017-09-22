@@ -1,7 +1,8 @@
 # DDD Types
 
 [![Build Status](https://travis-ci.org/fdelgados/ddd-types.svg?branch=master)](https://travis-ci.org/fdelgados/ddd-types)
-[![Packagist](https://img.shields.io/packagist/v/fdelgados/ddd-types.svg)](https://github.com/fdelgados/ddd-types/releases)
+[![Latest Stable Version](https://poser.pugx.org/fdelgados/ddd-types/v/stable)](https://packagist.org/packages/fdelgados/ddd-types)
+[![Latest Unstable Version](https://poser.pugx.org/fdelgados/ddd-types/v/unstable)](https://packagist.org/packages/fdelgados/ddd-types)
 
 Wrapper PHP types and Value Objects
 
