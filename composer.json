@@ -11,7 +11,8 @@
   "authors": [
     {
       "name": "Cisco Delgado",
-      "email": "fdelgados@gmail.com"
+      "email": "fdelgados@gmail.com",
+      "role": "Developer"
     }
   ],
   "require": {
