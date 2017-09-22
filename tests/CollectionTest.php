@@ -1,7 +1,5 @@
 <?php
 
-namespace CiscoDelgado\Types\Tests;
-
 use CiscoDelgado\Types\Collection;
 
 class CollectionTest extends \PHPUnit_Framework_TestCase

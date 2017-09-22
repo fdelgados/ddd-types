@@ -1,7 +1,5 @@
 <?php
 
-namespace CiscoDelgado\Types\Tests;
-
 use CiscoDelgado\Types\Validator;
 
 class ValidatorTest extends \PHPUnit_Framework_TestCase

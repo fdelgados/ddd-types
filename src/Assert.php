@@ -35,11 +35,11 @@ final class Assert
     }
 
     /**
-     * @param $class
+     * @param string $class
      * @param array $items
      * @throws AssertionFailedException
      */
-    public static function arrayOf($class, array $items)
+    public static function arrayOf(string $class, array $items)
     {
         foreach ($items as $item) {
             self::instanceOf($class, $item);
@@ -47,11 +47,11 @@ final class Assert
     }
 
     /**
-     * @param $class
-     * @param $item
+     * @param string $class
+     * @param mixed $item
      * @throws AssertionFailedException
      */
-    public static function instanceOf($class, $item)
+    public static function instanceOf(string $class, $item)
     {
         if (!$item instanceof $class) {
             throw new AssertionFailedException(
