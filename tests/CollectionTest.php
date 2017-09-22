@@ -3,8 +3,6 @@
 namespace CiscoDelgado\Types\Tests;
 
 use CiscoDelgado\Types\Collection;
-use CiscoDelgado\Types\Tests\Fixture\AType;
-use CiscoDelgado\Types\Tests\Fixture\AnotherType;
 
 class CollectionTest extends \PHPUnit_Framework_TestCase
 {
@@ -91,4 +89,28 @@ class ATypeCollection extends Collection
     {
         return AType::class;
     }
+}
+
+class AType
+{
+    private $name;
+
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
+
+    public function name()
+    {
+        return $this->name;
+    }
+
+    public function setName($newName)
+    {
+        $this->name = $newName;
+    }
+}
+
+class AnotherType
+{
 }
