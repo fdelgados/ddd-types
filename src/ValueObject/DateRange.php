@@ -50,7 +50,7 @@ class DateRange
      */
     public static function createFromDateRange(DateRange $dateRange): DateRange
     {
-        return new self($dateRange->start(), $dateRange->end());
+        return new static($dateRange->start(), $dateRange->end());
     }
 
     /**
@@ -60,7 +60,7 @@ class DateRange
      */
     public static function from(\DateTime $from): DateRange
     {
-        return new self($from, new \DateTime(self::MAX));
+        return new static($from, new \DateTime(self::MAX));
     }
 
     /**
@@ -70,7 +70,7 @@ class DateRange
      */
     public static function until(\DateTime $until): DateRange
     {
-        return new self(new \DateTime(self::MIN), $until);
+        return new static(new \DateTime(self::MIN), $until);
     }
 
     /**
@@ -79,7 +79,7 @@ class DateRange
      */
     public static function infinite(): DateRange
     {
-        return new self(new \DateTime(self::MIN), new \DateTime(self::MAX));
+        return new static(new \DateTime(self::MIN), new \DateTime(self::MAX));
     }
 
     /**
