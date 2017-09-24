@@ -52,6 +52,14 @@ class BooleanValueObject implements ValueObject
     }
 
     /**
+     * @return BooleanValueObject
+     */
+    public function opposite(): BooleanValueObject
+    {
+        return new static(!$this->value);
+    }
+
+    /**
      * @return string
      */
     public function __toString(): string

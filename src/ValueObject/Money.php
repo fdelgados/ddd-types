@@ -19,6 +19,7 @@ final class Money implements ValueObject
     public function __construct($amount, Currency $currency)
     {
         $this->guardAgainstInvalidValue($amount);
+        $this->amount = $amount;
         $this->currency = $currency;
     }
 
@@ -122,7 +123,7 @@ final class Money implements ValueObject
      * @param Money $money
      * @return Money
      */
-    public function substract(Money $money)
+    public function subtract(Money $money)
     {
         $this->guardAgainstDistinctCurrency($money->currency());
 
