@@ -5,7 +5,7 @@ namespace CiscoDelgado\Types\ValueObject;
 use function CiscoDelgado\CommonUtilities\StringProcessing\snake_to_camel;
 use CiscoDelgado\Types\ValueObject\Exception\InvalidEnumValueException;
 
-abstract class Enum
+abstract class Enum implements ValueObject
 {
     /** @var array */
     protected static $cache = [];
@@ -101,10 +101,9 @@ abstract class Enum
     }
 
     /**
-     * @param Enum $enum
-     * @return bool
+     * @inheritdoc
      */
-    public function equalsTo(Enum $enum): bool
+    public function equalsTo(ValueObject $enum): bool
     {
         return $this->value === $enum->value();
     }

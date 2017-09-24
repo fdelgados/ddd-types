@@ -2,6 +2,6 @@
 
 namespace CiscoDelgado\Types\Exception;
 
-class InvalidTypeInCollectionException extends \InvalidArgumentException
+final class InvalidTypeInCollectionException extends \InvalidArgumentException
 {
 }

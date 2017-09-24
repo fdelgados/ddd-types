@@ -7,7 +7,7 @@ use CiscoDelgado\Types\Exception\AssertionFailedException;
 use CiscoDelgado\Types\Validator;
 use CiscoDelgado\Types\ValueObject\Exception\ValueObjectException;
 
-class Email extends StringValueObject
+final class Email extends StringValueObject
 {
     /**
      * @param string $address
@@ -72,10 +72,10 @@ class Email extends StringValueObject
     }
 
     /**
-     * @param StringValueObject|Email $email
+     * @param ValueObject|Email $email
      * @return bool
      */
-    public function equalsTo(StringValueObject $email): bool
+    public function equalsTo(ValueObject $email): bool
     {
         try {
             Assert::instanceOf(self::class, $email);

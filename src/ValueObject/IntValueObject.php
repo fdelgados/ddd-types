@@ -15,15 +15,6 @@ abstract class IntValueObject extends NumberValueObject
     }
 
     /**
-     * @param IntValueObject $other
-     * @return bool
-     */
-    public function equalsTo(IntValueObject $other): bool
-    {
-        return $this->value() === $other->value();
-    }
-
-    /**
      * @return string
      */
     public function __toString(): string

@@ -2,6 +2,6 @@
 
 namespace CiscoDelgado\Types\Exception;
 
-class AssertionFailedException extends \Exception
+final class AssertionFailedException extends \Exception
 {
 }

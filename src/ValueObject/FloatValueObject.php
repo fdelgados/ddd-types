@@ -11,10 +11,4 @@ abstract class FloatValueObject extends NumberValueObject
     {
         $this->value = $value;
     }
-
-    /**
-     * @param FloatValueObject $anotherValue
-     * @return bool
-     */
-    abstract public function equalsTo(FloatValueObject $anotherValue): bool;
 }

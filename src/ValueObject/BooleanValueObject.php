@@ -2,7 +2,10 @@
 
 namespace CiscoDelgado\Types\ValueObject;
 
-class BooleanValueObject
+use CiscoDelgado\Types\Assert;
+use CiscoDelgado\Types\Exception\AssertionFailedException;
+
+class BooleanValueObject implements ValueObject
 {
     /** @var bool */
     protected $value;
@@ -57,11 +60,16 @@ class BooleanValueObject
     }
 
     /**
-     * @param BooleanValueObject $booleanValueObject
-     * @return bool
+     * @inheritdoc
      */
-    public function equalsTo(BooleanValueObject $booleanValueObject): bool
+    public function equalsTo(ValueObject $booleanValueObject): bool
     {
+        try {
+            Assert::instanceOf(self::class, $booleanValueObject);
+        } catch (AssertionFailedException $exception) {
+            return false;
+        }
+
         return $this->value === $booleanValueObject->value();
     }
 }

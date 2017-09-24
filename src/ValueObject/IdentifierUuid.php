@@ -4,16 +4,11 @@ namespace CiscoDelgado\Types\ValueObject;
 
 use Ramsey\Uuid\Uuid;
 
-class IdentifierUuid extends Identifier
+final class IdentifierUuid extends Identifier
 {
-    /**
-     * @param null|string $id
-     */
-    public function __construct($id = null)
+    public function __construct()
     {
-        $value = $id ?? Uuid::uuid4()->toString();
-
-        parent::__construct($value);
+        parent::__construct(Uuid::uuid4()->toString());
     }
 
     /**

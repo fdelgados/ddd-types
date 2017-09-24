@@ -5,8 +5,10 @@ namespace CiscoDelgado\Types\ValueObject;
 use CiscoDelgado\Types\Validator;
 use CiscoDelgado\Types\ValueObject\Exception\ValueObjectException;
 
-class HexadecimalColor
+final class HexadecimalColor implements ValueObject
 {
+    const VALUE_PATTERN = '/^#([A-Fa-f0-9]{6})$/';
+
     /** @var string */
     protected $value;
 
@@ -25,7 +27,7 @@ class HexadecimalColor
      */
     private function guardAgainstInvalidColorReference(string $value)
     {
-        if (!Validator::isValid($value, Validator::HEX_COLOR)) {
+        if (!Validator::isValid($value, Validator::REGEX, self::VALUE_PATTERN)) {
             throw new ValueObjectException('Incorrect color reference');
         }
     }
@@ -39,10 +41,9 @@ class HexadecimalColor
     }
 
     /**
-     * @param HexadecimalColor $color
-     * @return bool
+     * @inheritdoc
      */
-    public function equalsTo(HexadecimalColor $color): bool
+    public function equalsTo(ValueObject $color): bool
     {
         return $color->value() === $this->value;
     }

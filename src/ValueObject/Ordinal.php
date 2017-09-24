@@ -2,7 +2,9 @@
 
 namespace CiscoDelgado\Types\ValueObject;
 
-class Ordinal extends IntValueObject
+use CiscoDelgado\Types\ValueObject\Exception\ValueObjectException;
+
+final class Ordinal extends IntValueObject
 {
     /**
      * @param int $value
@@ -20,7 +22,15 @@ class Ordinal extends IntValueObject
     private function guardAgainstNegativeOrdinal(int $value)
     {
         if ($value < 0) {
-            throw new \InvalidArgumentException('Order cannot be negative');
+            throw new ValueObjectException('Order cannot be negative');
         }
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function equalsTo(ValueObject $valueObject): bool
+    {
+        return $this->value === $valueObject->value();
     }
 }

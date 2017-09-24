@@ -42,13 +42,4 @@ class Identifier extends StringValueObject
     {
         return is_int($id) || is_string($id);
     }
-
-    /**
-     * @param StringValueObject $stringValueObject
-     * @return bool
-     */
-    public function equalsTo(StringValueObject $stringValueObject): bool
-    {
-        return $this->value === $stringValueObject->value();
-    }
 }

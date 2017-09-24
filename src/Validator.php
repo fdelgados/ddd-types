@@ -10,7 +10,6 @@ final class Validator
     const ARRAY_TYPE = 'array';
     const EMAIL = 'email';
     const URL = 'url';
-    const HEX_COLOR = 'hex_color';
     const IPV4_ADDRESS = 'ipv4_address';
     const REQUIRED = 'required';
     const NOT_NULL = 'not_null';
@@ -22,8 +21,6 @@ final class Validator
     const REGEX = 'regex';
     const ANY = 'any';
     const NOT_ANY = 'not_any';
-
-    private const HEX_COLOR_PATTERN = '/^#([A-Fa-f0-9]{6})$/';
 
     /**
      * @param mixed $value
@@ -51,7 +48,6 @@ final class Validator
             self::ARRAY_TYPE => self::arrayValidator(),
             self::EMAIL => self::emailValidator(),
             self::URL => self::urlValidator(),
-            self::HEX_COLOR => self::hexColorValidator(),
             self::IPV4_ADDRESS => self::ipv4AddressValidator(),
             self::REQUIRED => self::requiredValidator(),
             self::NOT_NULL => self::notNullValidator(),
@@ -115,16 +111,6 @@ final class Validator
     {
         return function ($value) {
             return filter_var($value, FILTER_VALIDATE_EMAIL) !== false;
-        };
-    }
-
-    /**
-     * @return \Closure
-     */
-    private static function hexColorValidator(): \Closure
-    {
-        return function ($value) {
-            return preg_match(self::HEX_COLOR_PATTERN, $value) === 1;
         };
     }
 

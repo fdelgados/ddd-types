@@ -2,9 +2,11 @@
 
 namespace CiscoDelgado\Types\ValueObject;
 
+use CiscoDelgado\Types\Assert;
+use CiscoDelgado\Types\Exception\AssertionFailedException;
 use CiscoDelgado\Types\ValueObject\Exception\InvalidDataRangeValuesException;
 
-class DateRange
+class DateRange implements ValueObject
 {
     /**
      * @var string
@@ -83,12 +85,18 @@ class DateRange
     }
 
     /**
-     * @param  DateRange $dateRange
+     * @param ValueObject|DateRange $dateRange
      * @return bool
      */
-    public function equalsTo(DateRange $dateRange): bool
+    public function equalsTo(ValueObject $dateRange): bool
     {
-        return $this->toString() === $dateRange->toString();
+        try {
+            Assert::instanceOf(self::class, $dateRange);
+        } catch (AssertionFailedException $exception) {
+            return false;
+        }
+
+        return $this->value() === $dateRange->value();
     }
 
     /**
@@ -126,6 +134,14 @@ class DateRange
      * @return string
      */
     public function __toString()
+    {
+        return $this->toString();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function value()
     {
         return $this->toString();
     }

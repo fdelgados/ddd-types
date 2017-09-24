@@ -2,7 +2,7 @@
 
 namespace CiscoDelgado\Types\ValueObject;
 
-abstract class NumberValueObject
+abstract class NumberValueObject implements ValueObject
 {
     /** @var float|int */
     protected $value;

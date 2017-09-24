@@ -97,20 +97,6 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    public function it_should_validate_hexadecimal_colors()
-    {
-        $type = Validator::HEX_COLOR;
-
-        $this->assertTrue(Validator::isValid('#FFFFFF', $type));
-        $this->assertTrue(Validator::isValid('#eaeaea', $type));
-        $this->assertTrue(Validator::isValid('#34fcb0', $type));
-
-        $this->assertFalse(Validator::isValid('FFFFFF', $type));
-        $this->assertFalse(Validator::isValid('#ccc', $type));
-        $this->assertFalse(Validator::isValid('#43acTa', $type));
-    }
-
-    /** @test */
     public function it_should_validate_1pv4_addresses()
     {
         $type = Validator::IPV4_ADDRESS;

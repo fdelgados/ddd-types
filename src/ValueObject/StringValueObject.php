@@ -4,7 +4,7 @@ namespace CiscoDelgado\Types\ValueObject;
 
 use CiscoDelgado\Types\ValueObject\Exception\EmptyValueException;
 
-abstract class StringValueObject
+abstract class StringValueObject implements ValueObject
 {
     /** @var string */
     protected $value;
@@ -46,10 +46,9 @@ abstract class StringValueObject
     }
 
     /**
-     * @param StringValueObject $stringValueObject
-     * @return bool
+     * @inheritdoc
      */
-    public function equalsTo(StringValueObject $stringValueObject): bool
+    public function equalsTo(ValueObject $stringValueObject): bool
     {
         return $this->value() === $stringValueObject->value();
     }
