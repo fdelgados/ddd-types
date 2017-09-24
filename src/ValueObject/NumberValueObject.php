@@ -32,4 +32,21 @@ abstract class NumberValueObject implements ValueObject
     {
         return $this->value;
     }
+
+    /**
+     * @param ValueObject $valueObject
+     * @return bool
+     */
+    public function equalsTo(ValueObject $valueObject): bool
+    {
+        return $this->value === $valueObject->value();
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return (string) $this->value();
+    }
 }

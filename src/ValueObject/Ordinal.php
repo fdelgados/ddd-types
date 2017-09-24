@@ -25,12 +25,4 @@ final class Ordinal extends IntValueObject
             throw new ValueObjectException('Order cannot be negative');
         }
     }
-
-    /**
-     * @inheritdoc
-     */
-    public function equalsTo(ValueObject $valueObject): bool
-    {
-        return $this->value === $valueObject->value();
-    }
 }
