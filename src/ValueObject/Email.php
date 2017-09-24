@@ -82,7 +82,7 @@ class Email extends StringValueObject
         } catch (AssertionFailedException $exception) {
             return false;
         }
-        
+
         return $this->address() === $email->address();
     }
 }
