@@ -30,6 +30,18 @@ abstract class StringValueObject implements ValueObject
     }
 
     /**
+     * @param StringValueObject $stringValueObject
+     * @param string $glue
+     * @return StringValueObject
+     */
+    public function concat(StringValueObject $stringValueObject, string $glue = ' '): self
+    {
+        return new static(
+            sprintf('%s%s%s', $this->value, $glue, $stringValueObject->value())
+        );
+    }
+
+    /**
      * @return string
      */
     public function value(): string
