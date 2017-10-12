@@ -21,6 +21,7 @@ final class Validator
     const REGEX = 'regex';
     const ANY = 'any';
     const NOT_ANY = 'not_any';
+    const UUID = 'uuid';
 
     /**
      * @param mixed $value
@@ -59,6 +60,7 @@ final class Validator
             self::REGEX => self::regexValidator(),
             self::ANY => self::anyValidator(),
             self::NOT_ANY => self::notAnyValidator(),
+            self::UUID => self::uuidValidator(),
         ];
 
         return $validators[$type];
@@ -239,6 +241,16 @@ final class Validator
     {
         return function ($value, $haystack) {
             return is_array($haystack) && !in_array($value, $haystack);
+        };
+    }
+
+    /**
+     * @return \Closure
+     */
+    private static function uuidValidator(): \Closure
+    {
+        return function ($value) {
+            return preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/', $value) === 1;
         };
     }
 }

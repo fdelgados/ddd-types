@@ -239,4 +239,17 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse(Validator::isValid('ipsum', $type, $array));
         $this->assertFalse(Validator::isValid('dolor', $type, $array));
     }
+
+    /** @test */
+    public function it_should_validate_uuid()
+    {
+        $type = Validator::UUID;
+
+        $this->assertTrue(Validator::isValid('43bc89e1-9e25-4580-9f05-3ecf57a416ef', $type));
+        $this->assertTrue(Validator::isValid('00000000-0000-0000-0000-000000000000', $type));
+        $this->assertTrue(Validator::isValid('abababcd-1112-0000-0000-000000000000', $type));
+
+        $this->assertFalse(Validator::isValid('43bc891-9e25-4580-9f05-3ecf57a416ef', $type));
+        $this->assertFalse(Validator::isValid('a43bj891-9e25-4580-9f05-3ecf57a416ef', $type));
+    }
 }
