@@ -27,7 +27,7 @@ final class IdentifierUuid extends Identifier
      */
     private function guardAgainstInvalidUuid(string $id)
     {
-        if (Validator::isValid($id, Validator::UUID)) {
+        if (!Validator::isValid($id, Validator::UUID)) {
             throw new ValueObjectException(
                 sprintf('<%s> is not a valid UUID identifier', $id)
             );
